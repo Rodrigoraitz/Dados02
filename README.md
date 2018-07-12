@@ -1,4 +1,4 @@
-# Dados
+
 <?php
 //Captura o modelo selecionado
 $modelo = $_POST['modelo'];
