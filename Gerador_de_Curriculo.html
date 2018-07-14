@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+
+
+<head>
+	<meta charset="UTF-8">
+	
+</head>
+<body>
+	<main>
+		<section class="topo">
+
+            <h3><p><span>Nome Completo: </span><?= $dados['Nome']; ?></p></h3>
+            <h3><p><span>Sexo(M/F/Outros): </span><?= $dados['Sexo']; ?></p></h3>
+            <h3><p><span>Idade: </span><?= $dados['idade']; ?></p></h3>
+            <h3><p><span>Data de Nascimento: </span><?= $dados['Data']; ?></p></h3>
+            <h3><p><span>Estado Civil: </span><?= $dados['estadi civil']; ?></p></h3>
+			<h3><p><span>Telefone(s): </span><?= $dados['telefone']; ?></p></h3>
+            <h3><p><span>Celular: </span><?= $dados['celular']; ?></p></h3>
+            <h3><p><span>Cep: </span><?= $dados['cep']; ?></p></h3>
+			<h3><p><span>E-mail: </span><?= $dados['email']; ?></p></h3>
+			<h3><p><span>Endereço: </span><?= $dados['endereco']; ?></p></h3>
+            <h3><p><span>Formação Acadêmica: </span><?= $dados['formacao']; ?></p></h3>
+            <h3><p><span>Idiomas: </span><?= $dados['idioma']; ?></p></h3>
+            <h3><p><span>Habilidades: </span><?= $dados['habilidades']; ?></p></h3><br><br>
+            <h3><p><span>Objetivo: </span><?= $dados['objetivo']; ?></p></h3><br><br>
+            <h3><p><span>Referências de Trabalho: </span><?= $dados['pessoas']; ?></p></h3><br><br>
+            
+            
+            
+
+		</section>
+		<section class="conteudo">
+			<h3>Resumo:</h3>
+			
+			<p><?= $dados['resumo']; ?></p>
+			
+			<?php if($dados['formacoes']) { ?>
+				<h3>Outros Cursos:</h3>
+
+				<ul class="lista-topicos">
+					<?php for($i = 0; $i < sizeof($dados['formacoes']['cursos']); $i++) { ?>
+						<li>
+							<div>
+								<h4><?= $dados['formacoes']['cursos'][$i] ?></h4>
+								<p><?= $dados['formacoes']['instituicoes'][$i] ?></p>
+								<p><?= $dados['formacoes']['conclusoes'][$i] ?></p>
+							</div>
+						</li>
+					<?php } ?>
+				</ul>
+			<?php } ?>
+
+			<?php if($dados['experiencias']) { ?>
+				<h3>Experiência Profissional:</h3>
+
+				<ul class="lista-topicos">
+					<?php for($i = 0; $i < sizeof($dados['experiencias']['cargos']); $i++) { ?>
+						<li>
+							<div>
+								<h4><?= $dados['experiencias']['cargos'][$i] ?></h4>
+								<p><?= $dados['experiencias']['empresas'][$i] ?></p>
+								<p><?= $dados['experiencias']['inicios'][$i] ?> <?= $dados['experiencias']['fins'][$i] ?></p>
+							</div>
+						</li>
+					<?php } ?>
+				</ul>
+			<?php } ?>
+		</section>
+	</main>
+	<script>
+		window.print();
+	</script>
+</body>
+</html>
